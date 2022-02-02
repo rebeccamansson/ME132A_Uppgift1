@@ -39,8 +39,12 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 //      Set the initial value of input_test_1 to 13
 
 
+
+
 // E6:  To get the value shown in an input field we use this:
-//      document.querySelector("#input_test_1").value
+document.querySelector("#input_test_1").value
+let inputtest1 = document.querySelector("#input_test_1").value;
+console.log(inputtest1);
 //      Log to the console the current value of #input_test_1. It should
 //      be 13, if you managed the previous E correctly.
 
@@ -54,6 +58,18 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 //      Test this by manually changing the value of the input field. That is,
 //      by going to the webpage and changing that value.
 
+let buttonClick = document.querySelector("#button_test_1");
+
+buttonClick.addEventListener("click", function () {
+    let Value = document.getElementById("input_test_1").value;
+
+    console.log(Value)
+    // console.log(Value+1)
+
+    F1();
+});
+
+
 
 // E9:  NOTE that the value from the input field is a string, even if the input
 //      had type="number". You can see this in two ways:
@@ -62,17 +78,33 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 //      Test both ways.
 
 
+
+
+
+
 // E10: We want to transform the string "1" (for instance) into the number 1.
 //      This can be done with parseInt().
 //      So parseInt("1") will return the number 1
 //      What will be logged in the lines below?
 let a = "23";
 // console.log( parseInt( a ) + 1 );
+// answer : 24
 // console.log( a + 1 );
+// answer : 231
 
 
 // E11: Code a function (F1) that adds 23 to the number in the input field and
 //      logs the result to the console.
+
+function F1() {
+    let v = document.getElementById("input_test_1").value;
+
+    console.log(parseInt(v) + (parseInt(a))
+
+    )
+};
+
+
 
 
 // E12: Now make sure that F1 is called when the user clicks on #button_test_1
