@@ -15,6 +15,8 @@ gridMaker then must update the CSS properties gridTemplateColumns and gridTempla
 Note that the grid DOES NOT yet need to be filled with divs!
 
 
+
+
 TEST
 The call gridMaker( document.querySelector("#grid"), 2, 6 ) should result in the HTML-element
 with id "grid" having 2 rows and 6 columns
@@ -27,3 +29,15 @@ The HTML-element #grid will however be empty since we have not appended any othe
 
 */
 
+
+
+
+
+
+function gridMaker(gridContainer, R, C) {
+    gridContainer.style.display = "grid";
+    gridContainer.style.gridTemplateColumns = `repeat(${C}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${R}, 1fr)`;
+}
+
+gridMaker( document.querySelector("#grid"), 2, 6 );

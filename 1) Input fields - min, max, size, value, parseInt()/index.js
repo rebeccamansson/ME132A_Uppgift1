@@ -42,7 +42,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 
 
 // E6:  To get the value shown in an input field we use this:
-document.querySelector("#input_test_1").value
+
 let inputtest1 = document.querySelector("#input_test_1").value;
 console.log(inputtest1);
 //      Log to the console the current value of #input_test_1. It should
