@@ -97,7 +97,14 @@ function createNumberDiv() {
 console.log(gridMaker(document.querySelector("#grid"), valueRows, valueCols));
 
 
+let buttonC = document.querySelector("button");
+buttonC.addEventListener("click", function () {
 
+
+  console.log(gridMaker(document.querySelector("#grid"), valueRows, valueCols));
+
+
+});
 
 
 
