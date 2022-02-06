@@ -1,5 +1,68 @@
 "use strict";
 
+let valueRows = document.querySelector("#inputRows").value;
+let valueCols = document.querySelector("#inputCols").value;
+
+
+
+function gridMaker(gridContainer, R, C) {
+  gridContainer.style.display = "grid";
+  gridContainer.style.gridTemplateRows = `repeat(${R}, 1fr)`;
+  gridContainer.style.gridTemplateColumns = `repeat(${C}, 1fr)`;
+
+  gridContainer.innerHTML = "";
+
+
+
+
+  for (let i = 0; i < C; i++) {
+
+
+    for (let j = 0; j < R; j++) {
+      gridContainer.appendChild(createNumberDiv());
+
+
+    };
+  };
+};
+
+
+
+console.log(gridMaker(document.querySelector("#grid"), valueRows, valueCols));
+
+
+
+function createNumberDiv() {
+  let divs = document.createElement("div");
+  divs.innerHTML = Math.floor(99 * Math.random());
+  
+  divs.addEventListener("click", function () {
+    divs.classList.toggle("selected");
+    updateResults("selected");
+  });
+
+
+  return divs;
+
+
+};
+
+
+let buttonC = document.querySelector("button");
+buttonC.addEventListener("click", function () {
+
+
+  console.log(gridMaker(document.querySelector("#grid"), valueRows, valueCols));
+
+
+});
+
+function averg(_arr) {
+  let sum2 = adder(a1) / _arr.length;
+  return sum2;
+}
+
+
 
 /*
 
@@ -21,11 +84,13 @@ each time a number is selected or deselected.
 
 
 
+
 /*
 
 The idea is to use the functions we created at the beginning (adder, averg) to
 calculate the results. The problem is that we do not have an array with the
 numbers that the user has selected.
+
 
 You do not need to code, or understand, that function. I have included below the
 function getArrayOfSelectedNumbers. That function will return an array (a reference to
@@ -41,7 +106,7 @@ The function getArrayOfSelectedNumbers does the following:
   NOTE that you need to set the argument className when you make the function call
 */
 
-function getArrayOfSelectedNumbers (className) {
+function getArrayOfSelectedNumbers(className) {
 
   // This weird line creates an array with all the numberDivs that have the 
   // class className. Naturally, when you call this function, you will need 
@@ -59,12 +124,47 @@ function getArrayOfSelectedNumbers (className) {
     let numberAsString = arrayElements[i].innerHTML;
     let number = parseInt(numberAsString);
     arrayNumbers.push(number);
+
+
   }
 
   // Make the array of numbers available outside the function
   return arrayNumbers;
 
 }
+
+
+
+
+
+function updateResults(className) {
+  let result = getArrayOfSelectedNumbers(className)
+
+  document.querySelector("#selected span").innerHTML = result;
+  document.querySelector("#amount span").innerHTML = result.length;
+
+  document.querySelector("#sum span").innerHTML = adder(result);
+  document.querySelector("#average span").innerHTML = averg(result);
+
+  return (result)
+
+
+}
+
+function adder(_arr) {
+  let summ = 0;
+  for (let i = 0; i < _arr.length; i++) {
+    summ = summ + _arr[i];
+  }
+  return summ;
+}
+
+
+function averg(_arr) {
+  let sum2 = adder(_arr) / _arr.length;
+  return sum2;
+}
+
 
 
 /*
@@ -145,7 +245,7 @@ below to always show a number that has one decimal.
 
 */
 
-function roundString(numberWithManyDecimals, decimals){
+function roundString(numberWithManyDecimals, decimals) {
   // From: https://stackoverflow.com/a/12698296/2027283
   var rounded = Math.pow(10, decimals);
   return (Math.round(numberWithManyDecimals * rounded) / rounded).toFixed(decimals);
