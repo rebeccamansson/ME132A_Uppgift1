@@ -84,8 +84,8 @@ function createNumberDiv() {
     let divs = document.createElement("div");
     divs.innerHTML = Math.floor(99 * Math.random());
     divs.addEventListener("click", function () {
-    numberDiv.classList.toggle("selected");
-    updateResults("selected");
+        numberDiv.classList.toggle("selected");
+        updateResults("selected");
     });
 
 
@@ -101,7 +101,7 @@ let buttonC = document.querySelector("button");
 buttonC.addEventListener("click", function () {
 
 
-  console.log(gridMaker(document.querySelector("#grid"), valueRows, valueCols));
+    console.log(gridMaker(document.querySelector("#grid"), valueRows, valueCols));
 
 
 });

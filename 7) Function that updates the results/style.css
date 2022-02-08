@@ -1,67 +1,77 @@
 body {
-  margin: 0px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-family: Nunito;
+    margin: 0px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Nunito;
 }
 
-#top > div {
-  display: flex;
-  flex-basis: 6vh;
-  margin: 2vh;
-  justify-content: center;
+#top>div {
+    display: flex;
+    flex-basis: 6vh;
+    margin: 2vh;
+    justify-content: center;
 }
 
-#top > div > div {
-  margin: 0px 2vh;
+#top>div>div {
+    margin: 0px 2vh;
 }
 
 #grid {
-  margin: 2vh;
-  padding: 1vh;
-  flex-grow: 1;
-  display: grid;
-  gap: 1vh;
-
-  font-size: 3vh;
-
+    margin: 2vh;
+    padding: 1vh;
+    flex-grow: 1;
+    display: grid;
+    gap: 1vh;
+    font-size: 3vh;
 }
 
-#grid > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: black;
-  color: palevioletred;
+#grid>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: palevioletred;
 }
 
-#grid > div.selected {
-  background-color: palevioletred;
-  color: black;
-  border: 3px solid black;
+#grid>div.selected {
+    background-color: palevioletred;
+    color: black;
+    border: 3px solid black;
 }
 
-#grid > div:hover {
-  cursor: pointer;
-  box-shadow: 0 0 10px black;
+#grid>div:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px black;
 }
 
-button{
+button {
     color: palevioletred;
     background-color: white;
 }
 
-#inputRows{
+#inputRows {
     color: palevioletred;
-    
-
 }
 
-#inputCols{
-  color: palevioletred;
-  
-
+#inputCols {
+    color: palevioletred;
 }
-  
+
+button:hover {
+    background-color: black;
+    color: palevioletred;
+    cursor: pointer;
+}
+
+#inputCols:hover {
+    background-color: black;
+    color: palevioletred;
+    cursor: pointer;
+}
+
+#inputRows:hover {
+    background-color: black;
+    color: palevioletred;
+    cursor: pointer;
+}

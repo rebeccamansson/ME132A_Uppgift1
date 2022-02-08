@@ -12,6 +12,11 @@ function gridMaker(gridContainer, R, C) {
 
   gridContainer.innerHTML = "";
 
+  document.querySelector("#selected span").innerHTML = "";
+  document.querySelector("#amount span").innerHTML = "";
+  document.querySelector("#sum span").innerHTML = "";
+  document.querySelector("#average span").innerHTML = "";
+
 
 
 
@@ -27,40 +32,26 @@ function gridMaker(gridContainer, R, C) {
 };
 
 
-
-console.log(gridMaker(document.querySelector("#grid"), valueRows, valueCols));
-
-
-
-function createNumberDiv() {
-  let divs = document.createElement("div");
-  divs.innerHTML = Math.floor(99 * Math.random());
-  
-  divs.addEventListener("click", function () {
-    divs.classList.toggle("selected");
-    updateResults("selected");
-  });
-
-
-  return divs;
-
-
-};
-
-
 let buttonC = document.querySelector("button");
 buttonC.addEventListener("click", function () {
-
-
-  console.log(gridMaker(document.querySelector("#grid"), valueRows, valueCols));
-
+  gridMaker(
+    document.querySelector("#grid"),
+    document.getElementById("inputRows").value,
+    document.getElementById("inputCols").value
+  )
 
 });
 
-function averg(_arr) {
-  let sum2 = adder(a1) / _arr.length;
-  return sum2;
-}
+document.onload = gridMaker(document.querySelector("#grid"),
+  document.querySelector("#inputRows").value,
+  document.querySelector("#inputCols").value);
+
+window.onload = gridMaker(document.querySelector("#grid"),
+  document.querySelector("#inputRows").value,
+  document.querySelector("#inputCols").value);
+
+
+
 
 
 
@@ -136,34 +127,61 @@ function getArrayOfSelectedNumbers(className) {
 
 
 
-
-function updateResults(className) {
-  let result = getArrayOfSelectedNumbers(className)
-
-  document.querySelector("#selected span").innerHTML = result;
-  document.querySelector("#amount span").innerHTML = result.length;
-
-  document.querySelector("#sum span").innerHTML = adder(result);
-  document.querySelector("#average span").innerHTML = averg(result);
-
-  return (result)
-
-
+function roundString(numberWithManyDecimals, decimals) {
+  // From: https://stackoverflow.com/a/12698296/2027283
+  var rounded = Math.pow(10, decimals);
+  return (Math.round(numberWithManyDecimals * rounded) / rounded).toFixed(decimals);
 }
 
-function adder(_arr) {
-  let summ = 0;
-  for (let i = 0; i < _arr.length; i++) {
-    summ = summ + _arr[i];
+function createNumberDiv() {
+  let divs = document.createElement("div");
+  divs.innerHTML = Math.floor(99 * Math.random());
+  divs.addEventListener("click", function () {
+    divs.classList.toggle("selected");
+
+    divs.addEventListener("click", updateResults("selected"))
+  });
+  return divs;
+};
+
+function adder(_array) {
+  let sum = 0;
+  for (let i = 0; i < _array.length; i++) {
+    sum = sum + _array[i];
   }
-  return summ;
+  return sum;
 }
-
 
 function averg(_arr) {
-  let sum2 = adder(_arr) / _arr.length;
-  return sum2;
+  let average = adder(_arr) / _arr.length;
+  average = roundString(average, 1);
+  return average;
 }
+
+function updateResults(className) {
+
+
+  let array = getArrayOfSelectedNumbers(className);
+
+  let selected = array.join(", ");
+
+
+  let amount = array.length;
+  let sum = adder(array);
+  let average = roundString(averg(array), 1);
+
+  document.querySelector("#selected span").innerHTML = selected;
+  document.querySelector("#amount span").innerHTML = amount;
+  document.querySelector("#sum span").innerHTML = sum;
+  document.querySelector("#average span").innerHTML = average;
+
+}
+
+
+
+
+console.log([1, 3, 4, 10, 0, 1].join());
+console.log([1, 3, 4, 10, 0, 1].join(" - "));
 
 
 

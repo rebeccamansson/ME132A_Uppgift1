@@ -28,39 +28,39 @@ function gridMaker(gridContainer, R, C) {
   gridContainer.innerHTML = "";
 
 
-  for (let i = 0; i < C; i++) {
-    
+  // for (let i = 0; i < C; i++) {
 
-    for (let j = 0; j < R; j++) {
+  // for (let j = 0; j < R; j++) {
+  // gridContainer.appendChild(createNumberDiv());
+
+
+  // };
+  // };
+  // };
+
+
+  function gridMaker(gridContainer, R, C) {
+    gridContainer.style.display = "grid";
+    gridContainer.style.gridTemplateRows = `repeat(${R}, 1fr)`;
+    gridContainer.style.gridTemplateColumns = `repeat(${C}, 1fr)`;
+
+    // Andra loopen här 
+    let nTotal = R * C;
+    for (let i = 0; i < nTotal; i++) {
       gridContainer.appendChild(createNumberDiv());
+    }
 
-    
-    };
-  };
-};
-
-
-/*function gridMaker(gridContainer, R, C) {
-  gridContainer.style.display = "grid";
-  gridContainer.style.gridTemplateRows = `repeat(${R}, 1fr)`;
-  gridContainer.style.gridTemplateColumns = `repeat(${C}, 1fr)`;
-
-  Andra loopen här 
-  let nTotal = R * C;
-  for (let i = 0; i < nTotal; i++) {
-    gridContainer.appendChild( createNumberDiv() );
   }
 
-}
-/**/
 
-console.log(gridMaker(document.querySelector("#grid"), valueRows, valueCols));
+  console.log(gridMaker(document.querySelector("#grid"), valueRows, valueCols));
 
-function createNumberDiv() {
-  let divs =document.createElement ("div");
-  divs.innerHTML = Math.floor (99* Math.random ());
-  return divs;
- 
+  function createNumberDiv() {
+    let divs = document.createElement("div");
+    divs.innerHTML = Math.floor(99 * Math.random());
+    return divs;
 
+
+  }
 }
 

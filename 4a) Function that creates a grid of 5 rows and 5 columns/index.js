@@ -9,7 +9,7 @@ in your JS-file from the console. Check the video.
 
 */
 
-function testConsole (p1) {
+function testConsole(p1) {
   document.querySelector("body").style.backgroundColor = p1;
 }
 
@@ -35,18 +35,18 @@ VIDEO:  Record a video where you explain how F25 works line by line. Max 3 minut
 
 
 
-function F25 (container){
-for (let i = 0; i < 25; i++) {
-  let element = document.createElement ( "div" );
-  element.innerText = randomNumber ( 100 );
-  container.appendChild (element);
-}
+function F25(container) {
+  for (let i = 0; i < 25; i++) {
+    let element = document.createElement("div");
+    element.innerText = randomNumber(100);
+    container.appendChild(element);
+  }
 
 }
 
-function randomNumber (max){
-  return Math.floor( max * Math.random() );
+function randomNumber(max) {
+  return Math.floor(max * Math.random());
 }
 
-console.log(F25 (document.querySelector ("#gridContainer")));
+//  console.log(F25 (document.querySelector ("#gridContainer")));
 

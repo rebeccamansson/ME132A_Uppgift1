@@ -40,4 +40,4 @@ function gridMaker(gridContainer, R, C) {
     gridContainer.style.gridTemplateRows = `repeat(${R}, 1fr)`;
 }
 
-gridMaker( document.querySelector("#grid"), 2, 6 );
+gridMaker(document.querySelector("#grid"), 2, 6);
